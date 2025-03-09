@@ -3,9 +3,14 @@ import json
 import torch
 
 import sys
-sys.path.append(".")
+from pathlib import Path
+# 获取当前文件的绝对路径
+current_file_path = Path(__file__).resolve()
+# 获取当前文件所在的目录
+current_directory = current_file_path.parent
+sys.path.append(str(current_directory))
 
-from cli.inference import run_tts, parse_args
+from cli.inference import run_tts, parse_args  # noqa: E402
 
 
 if __name__ == "__main__":
