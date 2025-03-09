@@ -69,7 +69,10 @@ def run_tts(args):
     os.makedirs(args.save_dir, exist_ok=True)
 
     # Convert device argument to torch.device
-    device = torch.device(f"cuda:{args.device}")
+    if args.device == "cpu":
+        device = torch.device("cpu")
+    else:
+        device = torch.device(f"cuda:{args.device}")
 
     # Initialize the model
     model = SparkTTS(args.model_dir, device)
