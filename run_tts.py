@@ -11,7 +11,7 @@ current_directory = current_file_path.parent
 print(f"当前文件所在的目录：{current_directory}")
 sys.path.append(str(current_directory))
 
-from cli.inference import run_tts, parse_args  # noqa: E402
+from .cli.inference import run_tts, parse_args  # noqa: E402
 
 
 if __name__ == "__main__":
